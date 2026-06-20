@@ -3,10 +3,10 @@ int startValue = 5;
 
 void flashLED(int times){
   for(int i=0; i<times; i++){
-  digitalWrite(ledPin, HIGH);
-  delay(200);
-  digitalWrite(ledPin, LOW);
-  delay(200);
+    digitalWrite(ledPin, HIGH);
+    delay(200);
+    digitalWrite(ledPin, LOW);
+    delay(200);
   }
 }
 void setup(){
