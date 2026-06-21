@@ -40,15 +40,15 @@ ANSWER: setup() id a function that runs a program once when the board powers on 
 
 TASK 5:
 1.	Paste your final, working code.
-int ledPin = 13;
+   int ledPin = 13;
 int startValue = 5;
 
 void flashLED(int times){
   for(int i=0; i<times; i++){
   digitalWrite(ledPin, HIGH);
-  delay(500);
+  delay(200);
   digitalWrite(ledPin, LOW);
-  delay(500);
+  delay(200);
   }
 }
 void setup(){
@@ -59,25 +59,28 @@ void setup(){
   while(startValue>0){
     Serial.print("Count: ");
     Serial.println(startValue);
-
     flashLED(3);
     delay(1000);
     startValue = startValue - 1;
   }
   Serial.println("===Countdown Complete===");
+  digitalWrite(ledPin, HIGH);
+  delay(5000);
+  digitalWrite(ledPin, LOW);
+
 }
 
 void loop(){
 
 }
 
-2.	Describe one bug or mistake you ran into while writing this program and how you fixed it. (Be honest. Everyone runs into bugs.) 
+3.	Describe one bug or mistake you ran into while writing this program and how you fixed it. (Be honest. Everyone runs into bugs.) 
 ANSWER: The LED continues to run in the next count. It was fixed by adding thedelay(1000) after calling the function  flashLED();
 
-3.	If you wanted the program to count DOWN by 2 each step (5, 3, 1) instead of by 1, what would you change? 
+4.	If you wanted the program to count DOWN by 2 each step (5, 3, 1) instead of by 1, what would you change? 
 ANSWER:  I would change the startValue = startValue – 1; to startValue = startValue – 2;
 
-4.	If you wanted the LED to also stay ON for a final 5 seconds after the countdown completes, where in the code would you add this and what would the code look like
+5.	If you wanted the LED to also stay ON for a final 5 seconds after the countdown completes, where in the code would you add this and what would the code look like
 ANSWER:  I would add it after the Serial.println(“===Countdown Complete===”);
 And the code will look like:
 Serial.println("===Countdown Complete===");
